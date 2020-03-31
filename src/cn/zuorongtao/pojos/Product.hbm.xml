@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="cn.zuorongtao.pojos.Product" table="product">
+		<id name="productNo" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="productName" column="name" type="string" />
+		<property name="productPrice" column="price" type="float" />
+		<property name="productPath" column="path" type="string" />
+		<property name="productDesc" column="description" type="string" />
+		<property name="productType" column="type" type="string" />
+		<property name="disCount" column="discount" type="float" />
+		<many-to-one name="category" class="cn.zuorongtao.pojos.Category"
+			fetch="join">
+			<column name="category_ID" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>
+
